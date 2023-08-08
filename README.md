@@ -3,6 +3,7 @@
 **CodeSolver** is an innovative Chrome extension designed to aid learners and enthusiasts in studying computer science algorithms and code assignments. With just a keyboard shortcut, users can leverage the power of OpenAI's ChatGPT to solve a coding challenge or problem in a specified format. Ideal for platforms like CodeSignal, LeetCode, and HackerRank, this tool captures pre-selected HTML selectors and processes the content through a dedicated server to fetch real-time solutions.
 
 ```mermaid
+
 sequenceDiagram
     participant User
     participant Extension
