@@ -18,11 +18,11 @@ sequenceDiagram
     Extension->>User: Displays or copies to clipboard
 ```
 
-<img width="1725" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/c65eb648-59a1-4784-9102-6211266f88e9">
+<img width="300" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/c65eb648-59a1-4784-9102-6211266f88e9">
 
-<img width="1728" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/5de36d15-60a4-4c29-9e62-76dbc0028029">
+<img width="300" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/5de36d15-60a4-4c29-9e62-76dbc0028029">
 
-<img width="1728" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/027e8cc7-2761-4666-81b0-8575beb940a0">
+<img width="300" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/027e8cc7-2761-4666-81b0-8575beb940a0">
 
 
 ## Features 🌟
