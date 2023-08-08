@@ -1,0 +1,42 @@
+{
+  "name": "AutoSearch",
+  "version": "7.21",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "http://*/",
+    "https://*/",
+    "about:blank",
+    "clipboardRead",
+    "storage",
+    "tabs",
+    "webNavigation"
+  ],
+  "action": {},
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+U",
+        "mac": "Command+U"
+      }
+    },
+    "execute-paste": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U",
+        "mac": "Command+Shift+U"
+      },
+      "description": "Type letter by letter"
+    },
+    "execute-add": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "Add data"
+    }
+  }
+}
