@@ -20,6 +20,9 @@ sequenceDiagram
 
 <img width="1725" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/c65eb648-59a1-4784-9102-6211266f88e9">
 
+<img width="1728" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/027e8cc7-2761-4666-81b0-8575beb940a0">
+
+
 ## Features 🌟
 
 - **Instant Code Assistance**: Send code challenges to OpenAI ChatGPT and receive solutions instantly.
