@@ -42,7 +42,7 @@ sequenceDiagram
 
 2. Navigate to the server directory and install the necessary packages:
     ```bash
-    cd server-directory && npm install
+    cd server && npm install
     ```
 
 
@@ -50,13 +50,13 @@ sequenceDiagram
 
 4. Start the server:
     ```bash
-    npm start
+    npm run dev
     ```
 
 5. Install the Chrome extension:
     - Open Chrome and go to `chrome://extensions/`
     - Enable "Developer mode" and click "Load unpacked"
-    - Select the `chrome-extension-directory` from the project
+    - Select the `chrome-extension` from the project
 
 ## TODO 📝
 
