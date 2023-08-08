@@ -46,14 +46,20 @@ sequenceDiagram
     ```
 
 
-3. Copy the `.env.example` files and fill with own keys.
+3. Copy the `server/.env.example` files and fill with own keys.
 
-4. Start the server:
+   ```
+   NODE_ENV=development
+   OPENAI_API_KEY= # Get from https://platform.openai.com/account/api-keys
+   OPENAI_ORG= # Get from https://platform.openai.com/account/org-settings
+   ```
+
+5. Start the server:
     ```bash
     npm run dev
     ```
 
-5. Install the Chrome extension:
+6. Install the Chrome extension:
     - Open Chrome and go to `chrome://extensions/`
     - Enable "Developer mode" and click "Load unpacked"
     - Select the `chrome-extension` from the project
