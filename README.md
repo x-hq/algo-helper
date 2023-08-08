@@ -69,11 +69,11 @@ sequenceDiagram
 
 - [ ] Move to TypeScript
 - [ ] Keyboard shortcut for sending clipboard contents
-- [ ] Dropdown menu with options
-    - Select other languages 
-- [ ] Audio prompting
-- [ ] Keyboard shortcut for corrections
+- [ ] Keyboard shortcut for correction mode
 - [ ] Keyboard shortcut for random input
+- [ ] Dropdown menu with options
+    - Select other output languages
+- [ ] Audio prompting
 
 ## Contributing 💡
 
