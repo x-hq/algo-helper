@@ -70,7 +70,8 @@ sequenceDiagram
 
 ### Server
 
-- [ ] Should have HTTP GET endpoint with subscription/websocket that displays latest responses 
+- [ ] Should have HTTP GET endpoint with subscription/websocket that displays latest responses
+- [ ] Stitch long answers or limit length
 - [ ] Deployment somewhere
 
 ### Chrome Extension
