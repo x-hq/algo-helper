@@ -18,6 +18,13 @@ sequenceDiagram
     Extension->>User: Displays or copies to clipboard
 ```
 
+<img width="300" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/c65eb648-59a1-4784-9102-6211266f88e9">
+
+<img width="300" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/5de36d15-60a4-4c29-9e62-76dbc0028029">
+
+<img width="300" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/027e8cc7-2761-4666-81b0-8575beb940a0">
+
+
 ## Features 🌟
 
 - **Instant Code Assistance**: Send code challenges to OpenAI ChatGPT and receive solutions instantly.
@@ -46,14 +53,20 @@ sequenceDiagram
     ```
 
 
-3. Copy the `.env.example` files and fill with own keys.
+3. Copy the `server/.env.example` files and fill with own keys.
 
-4. Start the server:
+   ```
+   NODE_ENV=development
+   OPENAI_API_KEY= # Get from https://platform.openai.com/account/api-keys
+   OPENAI_ORG= # Get from https://platform.openai.com/account/org-settings
+   ```
+
+5. Start the server:
     ```bash
     npm run dev
     ```
 
-5. Install the Chrome extension:
+6. Install the Chrome extension:
     - Open Chrome and go to `chrome://extensions/`
     - Enable "Developer mode" and click "Load unpacked"
     - Select the `chrome-extension` from the project
@@ -62,18 +75,19 @@ sequenceDiagram
 
 ### Server
 
-- [ ] Should have HTTP GET endpoint with subscription/websocket that displays latest responses 
+- [ ] Should have HTTP GET endpoint with subscription/websocket that displays latest responses
+- [ ] Stitch long answers or limit length
 - [ ] Deployment somewhere
 
 ### Chrome Extension
 
 - [ ] Move to TypeScript
 - [ ] Keyboard shortcut for sending clipboard contents
-- [ ] Dropdown menu with options
-    - Select other languages 
-- [ ] Audio prompting
-- [ ] Keyboard shortcut for corrections
+- [ ] Keyboard shortcut for correction mode
 - [ ] Keyboard shortcut for random input
+- [ ] Dropdown menu with options
+    - Select other output languages
+- [ ] Audio prompting
 
 ## Contributing 💡
 
