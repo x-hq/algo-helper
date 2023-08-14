@@ -4,7 +4,7 @@ import { spawn } from "child_process";
 import { tidy } from "htmltidy2";
 import sanitizeHtml from "sanitize-html";
 import { logger } from "../../utils/logger";
-import { mode } from "../../utils/setMode";
+import { mode, setMode } from "../../utils/setMode";
 import { getWss } from "../utils/createWs";
 import { getCompletion, messagesMemo } from "../utils/getCompletion";
 import { broadcast } from "../utils/broadcast";
@@ -111,6 +111,28 @@ router.ws("/messages", async (ws) => {
         ws.send(message.content);
       }
     }
+
+    if (msg.toString() === "OPTION_ASSISTANT_1") {
+      setMode({ assistant: 'algorithms' });
+    }
+    if (msg.toString() === "OPTION_ASSISTANT_2") {
+      setMode({ assistant: 'system-design' });
+    }
+    if (msg.toString() === "OPTION_ASSISTANT_3") {
+      setMode({ assistant: 'free-form' });
+    }
+
+    if (msg.toString() === "OPTION_CONVERSATION_1") {
+      setMode({ conversation: "question"  });
+    }
+    if (msg.toString() === "OPTION_CONVERSATION_2") {
+      setMode({ conversation: 'follow-up'  });
+    }
+    if (msg.toString() === "OPTION_CONVERSATION_3") {
+      setMode({ conversation: 'correction'  });
+    }
+    
+
   });
 });
 

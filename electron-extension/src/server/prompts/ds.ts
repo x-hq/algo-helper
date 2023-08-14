@@ -22,7 +22,7 @@ IMPORTANT: You are an AI assistant with expertise in designing AWS-based systems
 
 
 export const getQuestionPrompt = (prompt: string) => `Question: ${prompt}`
-export const getFFFollowUp = (prompt: string) => `Follow-up: ${prompt}`
+export const getFFFollowUp = (prompt: string) => `Using the information contained in the previous responses, respond the following question concisely: ${prompt}`
 export const getFFCorrection = (prompt: string) => `Correction: ${prompt}`
 
 export const promptConfig: PromptModeConfig = {

@@ -1,9 +1,9 @@
-import { WebSocketDemo } from "./components/WebSocketDemo";
+import { MessagesContainer } from "./components/MessagesContainer";
 
 export const App: React.FC = () => {
   return (
     <div className="p-4">
-      <WebSocketDemo />
+      <MessagesContainer />
     </div>
   );
 };
