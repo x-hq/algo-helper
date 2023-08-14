@@ -2,7 +2,8 @@
 
 **CodeSolver** is a cutting-edge Electron extension designed to supercharge your coding sessions. Whether you're studying algorithms, working on system design, or just brainstorming, leverage the unparalleled power of OpenAI's ChatGPT to gain insights, solutions, and suggestions. Housed conveniently in your system tray, the extension provides quick commands to capture content and converse with ChatGPT.
 
-![Diagram](#mermaid-diagram-goes-here)
+<img width="1728" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/22968c5f-70e8-4df9-86fd-ebd6bf70d9a2">
+
 
 ## Features 🌟
 
