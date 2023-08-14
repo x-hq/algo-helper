@@ -5,6 +5,8 @@ import { execGetHTMLFromFrontWindow } from "./execGetHTMLFromFrontWindow";
 import { startRecordingKeyboard } from "./startRecordingKeyboard";
 import { stopRecordingKeyboard } from "./stopRecordingKeyboard";
 import { setMode } from "../../utils/setMode";
+import { restartApp, quitApp } from './restartApp';
+import { clearMessages } from './clearMessages';
 
 type Action = {
     id: string;
@@ -68,10 +70,27 @@ export const SHORTCUTS: Record<string,Action > = {
     label: "Set conversation mode: correction",
     action: () => setMode({ conversation: "correction" }),
   },
+  "Alt+Shift+CommandOrControl+Q": {
+    id: "restartApp",
+    label: "Restart app",
+    action: () => restartApp(),
+  },
+  "Alt+CommandOrControl+Q": {
+    id: "quitApp",
+    label: "Quit",
+    action: () => quitApp(),
+  },
+  "!skip": {
+    id: "clearMessages",
+    label: "Clear messages",
+    action: () => clearMessages(),
+  },
 };
 
 export const registerShortcuts = () => {
   for (const shortcut in SHORTCUTS) {
-    globalShortcut.register(shortcut, SHORTCUTS[shortcut].action);
+    if (!shortcut.startsWith("!")) {
+      globalShortcut.register(shortcut, SHORTCUTS[shortcut].action);
+    }
   }
 };

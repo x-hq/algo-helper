@@ -6,8 +6,9 @@ import sanitizeHtml from "sanitize-html";
 import { logger } from "../../utils/logger";
 import { mode, setMode } from "../../utils/setMode";
 import { getWss } from "../utils/createWs";
-import { getCompletion, messagesMemo } from "../utils/getCompletion";
+import {  getCompletion, messagesMemo } from "../utils/getCompletion";
 import { broadcast } from "../utils/broadcast";
+import { clearMessages } from "../../electron/utils/clearMessages"
 
 function pbcopy(data: any) {
   const proc = spawn("pbcopy");
@@ -24,8 +25,6 @@ type SearchResponse = {
 
 router.post<object, SearchResponse>("/", async (req, res) => {
   logger.log("SERVER SEARCH REQUEST");
-
-  console.log("MODE", mode);
 
   let content = "";
   try {
@@ -59,7 +58,7 @@ router.post<object, SearchResponse>("/", async (req, res) => {
     }
 
     content = await getCompletion(text);
-    logger.log("SERVER SEARCH DONE", content);
+    
   } catch (e) {
     console.error(e);
     return {
@@ -69,7 +68,7 @@ router.post<object, SearchResponse>("/", async (req, res) => {
   }
 
   // Memoize the messages so that we can use them in the next request
-  Object.assign(messagesMemo, ...messagesMemo, {
+  messagesMemo.push({
     role: "assistant",
     content: content,
   });
@@ -77,17 +76,12 @@ router.post<object, SearchResponse>("/", async (req, res) => {
   content = content.replace(/^```typescript/g, "");
   content = content.replace(/```$/g, "");
 
-  console.log("THIS IS HISTORY SO FAR", messagesMemo);
+  logger.log("MESSAGES HISTORY", messagesMemo.map((m) => ({ ...m, content: `${m.content.slice(0, 100)}...`  })));
 
   // Broadcast response
   broadcast(content);
 
   pbcopy(content);
-
-  console.log("RESPONSE", {
-    success: true,
-    content: content,
-  });
 
   res.json({
     success: true,
@@ -131,7 +125,9 @@ router.ws("/messages", async (ws) => {
     if (msg.toString() === "OPTION_CONVERSATION_3") {
       setMode({ conversation: 'correction'  });
     }
-    
+    if (msg.toString() === "CLEAR_MESSAGES_REQUEST") {
+      clearMessages()
+    }
 
   });
 });

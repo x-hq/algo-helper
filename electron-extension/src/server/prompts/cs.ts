@@ -51,14 +51,13 @@ After carefully analysing these cases, please provide an updated solution in the
 };
 
 
-
 export const getQuestionPrompt = (prompt: string) => `${prompt}`
-export const getFFFollowUp = (prompt: string) => `Follow-up: ${prompt}`
-export const getFFCorrection = (prompt: string) => `Correction: ${prompt}`
+export const getFollowUp = (prompt: string) => `Follow-up: ${prompt}`
+export const getCorrection = (prompt: string) => `Correction: ${prompt}`
 
 export const promptConfig: PromptModeConfig = {
     assistantPrompt: csAssistantPrompt,
     getQuestionPrompt: getQuestionPrompt,
-    getCorrectionPrompt: getFFCorrection,
-    getFollowUpPrompt: getFFFollowUp
+    getCorrectionPrompt: getCorrection,
+    getFollowUpPrompt: getFollowUp
 }

@@ -1,4 +1,3 @@
-
 import { ChatCompletionRequestMessage } from "openai";
 
 import { mode } from "../../utils/setMode";
@@ -8,7 +7,6 @@ import { promptConfig as freeFormPromptConfig } from "../prompts/free";
 import { PromptModeConfig } from "../utils/promptMode";
 import { openai } from "./openAi";
 import { broadcast } from "./broadcast";
-
 
 export let messagesMemo: ChatCompletionRequestMessage[] = [];
 
@@ -33,7 +31,7 @@ export async function getCompletion(prompt: string) {
     promptMode = freeFormPromptConfig;
   }
 
-  systemPrompt = promptMode.assistantPrompt; 
+  systemPrompt = promptMode.assistantPrompt;
 
   // Question format
   if (mode.conversation === "question") {
@@ -66,14 +64,18 @@ export async function getCompletion(prompt: string) {
     ];
   }
 
-  broadcast(userPrompt.substring(0, 150) + '...')
+  broadcast(userPrompt.substring(0, 150) + "...");
 
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: messagesMemo,
-    temperature: 0.5
+    temperature: 0.5,
   });
   content = completion.data.choices[0].message?.content ?? "";
 
   return content;
 }
+
+export const clearMessages = () => {
+  messagesMemo.splice(0, messagesMemo.length);
+};
