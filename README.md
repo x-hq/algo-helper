@@ -1,104 +1,68 @@
-# CodeSolver Chrome Extension 🚀
+# CodeSolver Electron Extension 🚀
 
-**CodeSolver** is an innovative Chrome extension designed to aid learners and enthusiasts in studying computer science algorithms and code assignments. With just a keyboard shortcut, users can leverage the power of OpenAI's ChatGPT to solve a coding challenge or problem in a specified format. Ideal for platforms like CodeSignal, LeetCode, and HackerRank, this tool captures pre-selected HTML selectors and processes the content through a dedicated server to fetch real-time solutions.
+**CodeSolver** is a cutting-edge Electron extension designed to supercharge your coding sessions. Whether you're studying algorithms, working on system design, or just brainstorming, leverage the unparalleled power of OpenAI's ChatGPT to gain insights, solutions, and suggestions. Housed conveniently in your system tray, the extension provides quick commands to capture content and converse with ChatGPT.
 
-```mermaid
-sequenceDiagram
-    participant User
-    participant Extension
-    participant Server
-    participant ChatGPT
-
-    User->>Extension: Uses shortcut or trigger
-    Extension->>User: Captures code/problem
-    Extension->>Server: Sends content to Server
-    Server->>ChatGPT: Requests solution
-    ChatGPT-->>Server: Returns solution
-    Server-->>Extension: Sends back solution
-    Extension->>User: Displays or copies to clipboard
-```
-
-<img width="300" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/c65eb648-59a1-4784-9102-6211266f88e9">
-
-<img width="300" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/5de36d15-60a4-4c29-9e62-76dbc0028029">
-
-<img width="300" alt="image" src="https://github.com/x-hq/algo-helper/assets/6836149/027e8cc7-2761-4666-81b0-8575beb940a0">
-
+![Diagram](#mermaid-diagram-goes-here)
 
 ## Features 🌟
 
-- **Instant Code Assistance**: Send code challenges to OpenAI ChatGPT and receive solutions instantly.
-- **Multilanguage Support**: Switch between multiple coding languages.
-- **Audio Prompting**: For those who prefer auditory cues.
-- **Versatile Interactions**: Correct, modify, or even test with random inputs using keyboard shortcuts.
-- **Real-time Monitoring**: A dedicated server with a websocket to monitor and display latest responses.
+- **Diverse Interaction Modes**: Multiple command shortcuts to read from clipboard, capture active HTML, start/stop keyboard recording, and more.
+- **Versatile Assistant Modes**: Switch between algorithms, system design, and free-form modes for context-aware assistance.
+- **Conversational Context**: Set the nature of your conversation - be it a question, follow-up, or correction.
+- **Real-time Interface**: An interactive React UI, powered by a WebSocket, to broadcast your AI conversations.
+- **Inbuilt Server**: Integrated Express server within the app for streamlined interactions.
 
 ## Getting Started 🛠
 
 ### Prerequisites
 
-- Chrome browser
-- Node.js & npm installed
+- Electron
+- Node.js & npm
 
 ### Installation
 
 1. Clone the repo:
     ```bash
-    git clone git@github.com:x-hq/algo-helper.git
+    git clone your-repo-link-goes-here.git
     ```
 
-2. Navigate to the server directory and install the necessary packages:
+2. Navigate to the project directory and install the necessary packages:
     ```bash
-    cd server && npm install
+    cd codesolver-directory && npm install
     ```
 
-
-3. Copy the `server/.env.example` files and fill with own keys.
-
-   ```
-   NODE_ENV=development
-   OPENAI_API_KEY= # Get from https://platform.openai.com/account/api-keys
-   OPENAI_ORG= # Get from https://platform.openai.com/account/org-settings
-   ```
-
-5. Start the server:
+3. Start the Electron app:
     ```bash
-    npm run dev
+    npm start
     ```
 
-6. Install the Chrome extension:
-    - Open Chrome and go to `chrome://extensions/`
-    - Enable "Developer mode" and click "Load unpacked"
-    - Select the `chrome-extension` from the project
+## Diagram
+```mermaid
+sequenceDiagram
+    participant User
+    participant ElectronApp as App
+    participant ExpressServer as Server
+    participant ChatGPT
+    participant ReactUI as UI
+
+    User->>App: Uses a command shortcut
+    App->>User: Captures relevant content (clipboard, HTML, etc.)
+    App->>Server: Sends content to Server
+    Server->>ChatGPT: Requests solution/mode change
+    ChatGPT-->>Server: Returns response
+    Server->>UI: Updates the React UI via WebSocket
+    UI->>User: Displays ChatGPT conversation
+```
 
 ## TODO 📝
-
-### Server
-
-- [ ] Should have HTTP GET endpoint with subscription/websocket that displays latest responses
-- [ ] Stitch long answers or limit length
-- [ ] Deployment somewhere
-
-### Chrome Extension
-
-- [ ] Move to TypeScript
-- [ ] Keyboard shortcut for sending clipboard contents
-- [ ] Keyboard shortcut for correction mode
-- [ ] Keyboard shortcut for random input
-- [ ] Dropdown menu with options
-    - Select other output languages
-- [ ] Audio prompting
+- Soft skills mode
 
 ## Contributing 💡
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
 
 ## License 📜
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the LICENSE.md file for details.
 
 ## Acknowledgments 👏
-
-- Platforms like CodeSignal, LeetCode, HackerRank for inspiring this project.
-- OpenAI's ChatGPT for providing a robust solution engine.
-
+OpenAI's ChatGPT for offering a powerful computational engine.
+Electron, React, and Express communities for their robust frameworks.
